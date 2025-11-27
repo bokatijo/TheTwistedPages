@@ -11,8 +11,14 @@ public class MusicManager : MonoBehaviour
     public int currentStage = 0;
     public float fadeTime = 1f;
 
+    public static MusicManager instance;
+    public float volume;
     private Stack<int> stageHistory = new Stack<int>();
 
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         if (stages.Count == 0)
@@ -38,7 +44,7 @@ public class MusicManager : MonoBehaviour
 
         float progress = refSource.time / refSource.clip.length;
 
-        newStage.Play(progress);
+        newStage.Play(progress, volume);
         newStage.SetVolume(0f);
 
         StopAllCoroutines();
