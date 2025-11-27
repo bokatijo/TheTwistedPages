@@ -13,6 +13,7 @@ public class MusicManager : MonoBehaviour
 
     public static MusicManager instance;
     public float volume;
+    
     private Stack<int> stageHistory = new Stack<int>();
 
     private void Awake()
@@ -21,6 +22,7 @@ public class MusicManager : MonoBehaviour
     }
     private void Start()
     {
+
         if (stages.Count == 0)
         {
             Debug.LogWarning("⚠️ No hay stagers configurados en MusicManager.");
@@ -99,8 +101,8 @@ public class MusicManager : MonoBehaviour
         {
             timer += Time.deltaTime;
             float t = timer / fadeTime;
-            from.SetVolume(Mathf.Lerp(1f, 0f, t));
-            to.SetVolume(Mathf.Lerp(0f, 1f, t));
+            from.SetVolume(Mathf.Lerp(1f * volume, 0f, t));
+            to.SetVolume(Mathf.Lerp(0f, 1f * volume, t));
             yield return null;
         }
         from.SetVolume(0f);
@@ -122,7 +124,7 @@ public class MusicManager : MonoBehaviour
         from.Stop();
 
         // Fade in la nueva
-        to.Play(0f);
+        to.Play(0f, volume);
         to.SetVolume(0f);
 
         timer = 0f;
@@ -130,7 +132,7 @@ public class MusicManager : MonoBehaviour
         {
             timer += Time.deltaTime;
             float t = timer / fadeTime;
-            to.SetVolume(Mathf.Lerp(0f, 1f, t));
+            to.SetVolume(Mathf.Lerp(0f, 1f * volume, t));
             yield return null;
         }
         to.SetVolume(1f);
