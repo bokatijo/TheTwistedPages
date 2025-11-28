@@ -584,6 +584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 167537665}
   - component: {fileID: 167537664}
+  - component: {fileID: 167537666}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -607,6 +608,7 @@ MonoBehaviour:
   - {fileID: 47087412}
   currentStage: 0
   fadeTime: 1
+  volume: 0
 --- !u!4 &167537665
 Transform:
   m_ObjectHideFlags: 0
@@ -623,6 +625,20 @@ Transform:
   - {fileID: 47087413}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &167537666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167537663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a38e76b8e61f62543ba1ddcc3750e7e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSource: {fileID: 0}
+  sounds: []
 --- !u!1001 &191585197
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class RoomController : MonoBehaviour
     private int enemiesRemaining = 0;
     private bool isCleared = false;
     private bool isActive = false;
-    private MusicManager musicManager;
+    //private MusicManager musicManager;
     private int musicIndex=1;
     public GameObject gameWonMenu;
 
@@ -30,7 +30,7 @@ public class RoomController : MonoBehaviour
         }
 
         gameWonMenu = GameObject.FindGameObjectWithTag("Game Won Menu");
-        musicManager = GameObject.FindFirstObjectByType<MusicManager>();
+        MusicManager.instance = GameObject.FindFirstObjectByType<MusicManager>();
     }
 
     public void ActivateRoom()
@@ -59,7 +59,7 @@ public class RoomController : MonoBehaviour
                 door.CloseDoor();
                 //if (musicIndex==1)
                 //{
-                //    musicManager.SwitchStageSynced(musicIndex);
+                //    MusicManager.instance.SwitchStageSynced(musicIndex);
                 //    musicIndex = 0;
                 //}
             }
